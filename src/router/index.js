@@ -12,9 +12,9 @@ const router = new VueRouter({
   mode: 'history', //去掉url中的#
   routes: [
     {
-      path: "/userHome",
-      name: "userHome",
-      component: () => import("@/views/UserHome"),
+      path: "/",
+      name: "homePage",
+      component: () => import("@/views/HomePage"),
     },
   ],
 });
