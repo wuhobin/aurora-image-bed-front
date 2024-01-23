@@ -1,6 +1,12 @@
 <template>
   <div>
     <div id="home-cover-wrap">
+      <div class="home-head">
+        <ul>
+          <li @click="login">登录</li>
+          <li @click="signUp" class="sign-up">注册账户</li>
+        </ul>
+      </div>
       <div class="home-cover-img animate-in" :style="{ backgroundImage: `url(${currentBackground})` }"></div>
       <div id="home-cover-content">
         <h1>上传与分享您的照片</h1>
@@ -45,6 +51,12 @@ export default {
       const index = timestamp % this.backgrounds.length;
       return index;
     },
+    login(){
+      this.$router.push("/login");
+    },
+    signUp(){
+      this.$router.push("/signup");
+    }
   },
 };
 </script>
@@ -203,7 +215,7 @@ export default {
 }
 
 .btn.green:hover {
-    background-color: #25A55C;
+  background-color: #25A55C;
 }
 
 #home-cover-content .home-buttons a {
@@ -217,12 +229,50 @@ export default {
 }
 
 .footer {
-    color: #fff;
-    font-size: 10px;
-    line-height: 20px;
-    text-align: center;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
+  color: #fff;
+  font-size: 10px;
+  line-height: 20px;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+
+.home-head {
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: #FFF;
+  right: 0;
+  z-index: 400;
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px;
+  font-size: 14px;
+}
+
+
+.home-head ul {
+  display: flex;
+  margin-right: 50px;
+  align-items: center; 
+}
+
+.home-head li {
+  margin-left: 20px;
+  cursor: pointer;
+  text-align: center;
+}
+
+
+li.sign-up{
+  background-color: #2A80B9;
+  padding: 4px 12px;
+  border-radius: 2px;
 }
 </style>
