@@ -2,8 +2,12 @@ import { post, postJSON, get } from "@/api/request";
 
 export default {
  
-  UserLogin(params){
-    return post("/user-service/auth/login", params);
+  UserRegister(params){
+    return post("/user-service/user/register", params);
   },
+
+  AccountActive(params){
+    return post("/user-service/user/account/active", params);
+  }
 
 };

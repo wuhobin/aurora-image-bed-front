@@ -3,14 +3,9 @@
     <div id="home-cover-wrap">
       <div class="home-cover-img"></div>
       <div class="login-box">
-        <h1>注册账户</h1>
-        <div class="content-section">已经有账户了? <a>登录</a> 现在。你也可以<a> 重新激活帐户. </a> 或者 <a @click="goToHome">回到首页</a>.</div>
-        <form action="" method="post">
-          <input v-model="email" type="text" name="" placeholder="Email地址">
-          <input v-model="username" type="text" name="" placeholder="用户名">
-          <input v-model="password" type="password" name="" placeholder="密码">
-        </form>
-        <el-button type="primary" size="mini" @click="register">注册账户</el-button>
+        <h1>您的账号已经准备好</h1>
+        <div class="content-section">已向 <span>{{ email }}</span> 发送了一封电子邮件，其中包含激活您帐户的说明。激活链接仅在 <span>2</span> 小时内有效。如果您没有收到说明，请尝试检查您的垃圾邮件或垃圾邮件过滤器。</div>
+        <el-button type="primary" size="mini" @click="goToLogin">登录</el-button>
       </div>
     </div>
   </div>
@@ -20,50 +15,15 @@
 
 
 export default {
-  name: "SignUpPage",
+  name: "RegisterSuccessPage",
   data() {
     return {
-      email: "",
-      username: "",
-      password: ""
+      email: this.$route.query.email
     }
   },
   methods: {
-    goToHome() {
-      this.$router.push("/")
-    },
-    register() {
-      if (this.email === '' || this.username === '' || this.password === '') {
-        this.$notify.error({
-          title: '表单校验失败',
-          message: '请输入必填项'
-        });
-        return
-      }
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(this.email)) {
-        this.$notify.error({
-          title: '表单校验失败',
-          message: '请输入正确的邮箱地址'
-        });
-        return
-      }
-      this.$http.UserRegister({ email: this.email.trim(), username: this.username.trim(), password: this.password.trim() }).then(res => {
-        console.log(res)
-        if (res.code === 200) {
-          this.$router.push({
-            path: '/awaiting-confirmation',
-            query: {
-              email: this.email.trim()
-            }
-          });
-        } else {
-          this.$notify.error({
-            title: '注册失败',
-            message: res.msg
-          });
-        }
-      })
+    goToLogin(){
+      this.$router.push("/login")
     }
   },
 }
@@ -176,15 +136,19 @@ input {
 }
 
 input:focus {
-  border-color: #3498db;
+    border-color: #3498db;
 }
-
 /* 兼容不同浏览器的写法 */
 input::placeholder {
   color: #999;
 }
 
-.el-button {
+.el-button{
   margin-top: 20px;
 }
+
+.login-box span{
+  font-weight: bold;
+}
+
 </style>

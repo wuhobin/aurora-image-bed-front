@@ -26,6 +26,16 @@ const router = new VueRouter({
       name: "signUpPage",
       component: () => import("@/views/SignUpPage"),
     },
+    {
+      path: "/activation-account",
+      name: "ActivationPage",
+      component: () => import("@/views/ActivationPage"),
+    },
+    {
+      path: "/awaiting-confirmation",
+      name: "RegisterSuccessPage",
+      component: () => import("@/views/RegisterSuccessPage"),
+    },
   ],
 });
 

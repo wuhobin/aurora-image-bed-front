@@ -4,13 +4,14 @@
       <div class="home-cover-img"></div>
       <div class="login-box">
         <h1>使用你的帐户登录</h1>
-        <div class="content-section">没有账号? <a>马上注册</a>.或者<a @click="goToHome"> 回到首页</a>.</div>
+        <div class="content-section">没有账号? <a @click="goToRegister">马上注册</a>.或者<a @click="goToHome"> 回到首页</a>.</div>
         <form action="" method="post">
           <input type="text" name="" placeholder="用户名或电子邮件地址">
           <input type="password" name="" placeholder="密码">
         </form>
         <div class="forget-password">
           <a>忘记密码?</a>
+          <a href=""></a>
         </div>
         <el-button type="primary" size="mini">登录</el-button>
       </div>
@@ -32,6 +33,9 @@ export default {
   methods: {
     goToHome(){
       this.$router.push("/")
+    },
+    goToRegister(){
+      this.$router.push("/signup")
     }
   },
 }

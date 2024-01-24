@@ -31,11 +31,11 @@ export default {
   data() {
     return {
       backgrounds: [
-        "https://img.gejiba.com/content/images/system/default/home_cover.jpg",
-        "https://img.gejiba.com/content/images/system/home_cover_1602572442792_db2c9a.png",
-        "https://img.gejiba.com/content/images/system/home_cover_1602572532632_1426e1.png",
-        "https://img.gejiba.com/content/images/system/home_cover_1602572549754_b3275f.jpg",
-        "https://img.gejiba.com/content/images/system/home_cover_1602572427548_c99741.jpg",
+        "https://aurora-cdn.wuhobin.top/blog/f2c2d3cd6e6620c19590d4a279550c4.jpg",
+        "https://aurora-cdn.wuhobin.top/blog/home-cover1.png",
+        "https://aurora-cdn.wuhobin.top/blog/home-cover3.png",
+        "https://aurora-cdn.wuhobin.top/blog/home-vover2.jpg",
+        "https://aurora-cdn.wuhobin.top/blog/c195608eeb8fd5d7023885fce1254d2.jpg",
       ],
     };
   },
